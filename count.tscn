@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh238erm04bl0"]
+
+[ext_resource type="Script" path="res://Count.gd" id="1_f2sgb"]
+[ext_resource type="PackedScene" uid="uid://be6xfc1k75axq" path="res://count_2.tscn" id="2_64pa7"]
+
+[node name="Count" type="Node2D"]
+script = ExtResource("1_f2sgb")
+
+[node name="L1" type="Label" parent="."]
+offset_left = 685.0
+offset_top = 242.0
+offset_right = 934.0
+offset_bottom = 379.0
+theme_override_font_sizes/font_size = 75
+text = "0:00"
+
+[node name="T1" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[node name="count2" parent="." instance=ExtResource("2_64pa7")]
+visible = false
+
+[connection signal="fail" from="." to="." method="_on_fail"]
+[connection signal="timeout" from="T1" to="." method="_on_t_1_timeout"]

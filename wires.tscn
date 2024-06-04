@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmgk57pe2cetq"]
+
+[ext_resource type="Script" path="res://wires.gd" id="1_dsu01"]
+[ext_resource type="Texture2D" uid="uid://cmnpshlde7y2x" path="res://textures/red3.png" id="2_je3jt"]
+[ext_resource type="Texture2D" uid="uid://6fyos4jo8ovv" path="res://textures/green.png" id="3_f2aal"]
+[ext_resource type="Texture2D" uid="uid://c2dpo6wk5xkx1" path="res://textures/blue.png" id="4_hypfp"]
+[ext_resource type="Texture2D" uid="uid://dl8u81meain1b" path="res://textures/yellow.png" id="5_n15pk"]
+[ext_resource type="PackedScene" uid="uid://be6xfc1k75axq" path="res://count_2.tscn" id="6_kj4ey"]
+[ext_resource type="PackedScene" uid="uid://njoknwet2k77" path="res://win.tscn" id="7_jiknk"]
+
+[node name="wires" type="Node2D"]
+script = ExtResource("1_dsu01")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 18.0
+offset_top = -5.0
+offset_right = 804.0
+offset_bottom = 471.0
+color = Color(0.0634882, 0.0699891, 0.0743159, 1)
+
+[node name="rp" type="TextureRect" parent="."]
+offset_left = 76.0
+offset_top = 47.0
+offset_right = 692.0
+offset_bottom = 87.0
+texture = ExtResource("2_je3jt")
+
+[node name="gp" type="TextureRect" parent="."]
+offset_left = 76.0
+offset_top = 151.0
+offset_right = 692.0
+offset_bottom = 191.0
+texture = ExtResource("3_f2aal")
+
+[node name="bp" type="TextureRect" parent="."]
+offset_left = 76.0
+offset_top = 260.0
+offset_right = 692.0
+offset_bottom = 300.0
+texture = ExtResource("4_hypfp")
+
+[node name="yp" type="TextureRect" parent="."]
+offset_left = 76.0
+offset_top = 365.0
+offset_right = 692.0
+offset_bottom = 405.0
+texture = ExtResource("5_n15pk")
+
+[node name="Red" type="Button" parent="."]
+offset_left = 379.0
+offset_top = 20.0
+offset_right = 392.0
+offset_bottom = 110.0
+text = "l
+l
+l"
+
+[node name="Green" type="Button" parent="."]
+offset_left = 379.0
+offset_top = 130.0
+offset_right = 392.0
+offset_bottom = 220.0
+text = "l
+l
+l"
+
+[node name="Blue" type="Button" parent="."]
+offset_left = 379.0
+offset_top = 235.0
+offset_right = 392.0
+offset_bottom = 325.0
+text = "l
+l
+l"
+
+[node name="Yelow" type="Button" parent="."]
+offset_left = 379.0
+offset_top = 339.0
+offset_right = 392.0
+offset_bottom = 429.0
+text = "l
+l
+l"
+
+[node name="D1" type="ColorRect" parent="."]
+visible = false
+offset_left = 171.0
+offset_top = 155.0
+offset_right = 638.0
+offset_bottom = 339.0
+color = Color(0.254902, 0.588235, 0.247059, 1)
+
+[node name="D3" type="ColorRect" parent="."]
+visible = false
+offset_left = 173.0
+offset_top = 154.0
+offset_right = 638.0
+offset_bottom = 339.0
+color = Color(0.870588, 0.227451, 0.270588, 1)
+
+[node name="D2" type="Label" parent="."]
+visible = false
+offset_left = 221.0
+offset_top = 172.0
+offset_right = 595.0
+offset_bottom = 309.0
+theme_override_font_sizes/font_size = 100
+text = "Success"
+
+[node name="D4" type="Label" parent="."]
+visible = false
+offset_left = 295.0
+offset_top = 173.0
+offset_right = 684.0
+offset_bottom = 310.0
+theme_override_font_sizes/font_size = 100
+text = "FAIL"
+
+[node name="count2" parent="." instance=ExtResource("6_kj4ey")]
+visible = false
+
+[node name="win" parent="." instance=ExtResource("7_jiknk")]
+visible = false
+
+[node name="Timer2" type="Timer" parent="."]
+
+[connection signal="pressed" from="Red" to="." method="_on_red_pressed"]
+[connection signal="pressed" from="Green" to="." method="_on_green_pressed"]
+[connection signal="pressed" from="Blue" to="." method="_on_blue_pressed"]
+[connection signal="pressed" from="Yelow" to="." method="_on_yelow_pressed"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
